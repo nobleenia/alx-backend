@@ -47,7 +47,7 @@ class Server:
         """
         Return a dictionary with pagination data
         """
-        assert index is not None and index < len(self.__indexed_dataset), \
+        assert index is not None and index < len(self.__indexed_dataset),\
             "Index out of range"
         assert page_size > 0, "Page size must be positive"
 

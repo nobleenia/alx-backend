@@ -41,11 +41,14 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, any]:
+    def get_hyper_index(
+            self, index: int = None, page_size: int = 10
+    ) -> Dict[str, any]:
         """
         Return a dictionary with pagination data
         """
-        assert index is not None and index < len(self.__indexed_dataset), "Index out of range"
+        assert index is not None and index < len(self.__indexed_dataset), \
+            "Index out of range"
         assert page_size > 0, "Page size must be positive"
 
         indexed_dataset = self.indexed_dataset()
@@ -56,7 +59,10 @@ class Server:
                 data.append(indexed_dataset[current_index])
             current_index += 1
 
-        next_index = current_index if current_index < len(indexed_dataset) else None
+        next_index = (
+            current_index if current_index < len(indexed_dataset) else None
+        )
+
 
         return {
             'index': index,

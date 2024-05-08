@@ -29,7 +29,7 @@ class FIFOCache(BaseCaching):
                 oldest_key = self.key_order.pop(0)
                 del self.cache_data[oldest_key]
                 print("DISCARD: {}".format(oldest_key))
-            
+
             self.cache_data[key] = item
             if key in self.key_order:
                 self.key_order.remove(key)

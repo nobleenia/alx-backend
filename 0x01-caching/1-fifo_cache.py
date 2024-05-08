@@ -5,7 +5,8 @@ from base_caching import BaseCaching
 
 class FIFOCache(BaseCaching):
     """
-    FIFOCache class that inherits from BaseCaching and is a caching system.
+    FIFOCache class that inherits from BaseCaching
+    and is a caching system.
     It implements the FIFO caching algorithm.
     """
 
@@ -18,11 +19,12 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """
-        Assign the item value for the key in self.cache_data.
-        If the cache exceeds its max size, remove the oldest item.
+        Assign the item value for key in self.cache_data
+        If the cache exceeds max size, remove oldest item
         """
         if key is not None and item is not None:
-            if key not in self.cache_data and len(self.cache_data) >= self.MAX_ITEMS:
+            if key not in self.cache_data and \
+               len(self.cache_data) >= self.MAX_ITEMS:
                 # Discard the first item put in cache (FIFO)
                 oldest_key = self.key_order.pop(0)
                 del self.cache_data[oldest_key]
@@ -35,7 +37,7 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """
-        Return the value linked to key in self.cache_data.
+        Return the value linked to key in self.cache_data
         Return None if key is None or does not exist.
         """
         if key is None or key not in self.cache_data:

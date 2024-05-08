@@ -47,7 +47,7 @@ class LFUCache(BaseCaching):
     def get(self, key):
         """
         Return the value linked to key in self.cache_data.
-        Increase frequency, update the timestamp, and return the value.
+        Increase frequency, update timestamp, return value
         """
         if key in self.cache_data:
             self.usage_frequency[key] += 1

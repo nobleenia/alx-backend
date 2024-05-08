@@ -5,8 +5,9 @@ from base_caching import BaseCaching
 
 class MRUCache(BaseCaching):
     """
-    MRUCache class that inherits from BaseCaching and is a caching system
-    that discards the most recently used item (MRU algorithm).
+    MRUCache class that inherits from BaseCaching and
+    is a caching system that discards the most
+    recently used item (MRU algorithm).
     """
 
     def __init__(self):
@@ -16,19 +17,18 @@ class MRUCache(BaseCaching):
 
     def put(self, key, item):
         """
-        Assign the item value for the key in self.cache_data.
-        Discard the most recently used item if the cache exceeds MAX_ITEMS.
+        Assign item value for the key in self.cache_data.
+        Discard most recent  item if cache exceeds MAX_ITEMS
         """
         if key is not None and item is not None:
             if key in self.cache_data:
                 self.access_order.remove(key)
-            self.cache_data[key] = item
-            self.access_order.append(key)
-
-            if len(self.cache_data) > self.MAX_ITEMS:
-                mru_key = self.access_order.pop(-1)  # Get the most recently used
+            elif len(self.cache_data) >= self.MAX_ITEMS:
+                mru_key = self.access_order.pop()  # The last item is the MRU
                 del self.cache_data[mru_key]
                 print(f"DISCARD: {mru_key}")
+            self.cache_data[key] = item
+            self.access_order.append(key)
 
     def get(self, key):
         """

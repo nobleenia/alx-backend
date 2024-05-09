@@ -50,11 +50,11 @@ class LFUCache(BaseCaching):
         """Evict items based on LFU and LRU strategy."""
         if not self.cache_data:
             return
-        
+
         least_freq = min(self.usage_frequency.values())
         lfu_candidates = [k for k, v in self.usage_frequency.items() if v == least_freq]
         lfu_key = min(lfu_candidates, key=lambda k: self.time_stamp[k])
-        
+
         self.cache_data.pop(lfu_key)
         self.usage_frequency.pop(lfu_key)
         self.time_stamp.pop(lfu_key)

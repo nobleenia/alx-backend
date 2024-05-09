@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """100-lfu_cache module"""
-
-
 from base_caching import BaseCaching
 
 
@@ -52,7 +50,9 @@ class LFUCache(BaseCaching):
             return
 
         least_freq = min(self.usage_frequency.values())
-        lfu_candidates = [k for k, v in self.usage_frequency.items() if v == least_freq]
+        lfu_candidates = [
+            k for k, v in self.usage_frequency.items() if v == least_freq
+        ]
         lfu_key = min(lfu_candidates, key=lambda k: self.time_stamp[k])
 
         self.cache_data.pop(lfu_key)

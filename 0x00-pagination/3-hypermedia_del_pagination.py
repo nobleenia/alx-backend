@@ -63,7 +63,6 @@ class Server:
             current_index if current_index < len(indexed_dataset) else None
         )
 
-
         return {
             'index': index,
             'next_index': next_index,

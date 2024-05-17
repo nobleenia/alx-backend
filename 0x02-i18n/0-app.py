@@ -8,13 +8,13 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def index():
     """
     Route for the main page.
-    Returns the index.html template.
+    Returns the 0-index.html template.
     """
-    return render_template('index.html')
+    return render_template('0-index.html')
 
 
 if __name__ == "__main__":

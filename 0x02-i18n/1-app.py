@@ -25,9 +25,9 @@ babel = Babel(app)
 def index():
     """
     Route for the main page.
-    Returns the index.html template.
+    Returns the 1-index.html template.
     """
-    return render_template('index.html')
+    return render_template('1-index.html')
 
 
 if __name__ == "__main__":

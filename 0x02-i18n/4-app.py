@@ -8,7 +8,7 @@ from flask_babel import Babel, _
 
 class Config:
     """
-    Configuration class for Flask app
+    Babbel configuration class for Flask app
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -36,9 +36,9 @@ def get_locale():
 def index():
     """
     Route for the main page.
-    Returns the 2-index.html template.
+    Returns the 4-index.html template.
     """
-    return render_template('2-index.html')
+    return render_template('4-index.html')
 
 
 if __name__ == "__main__":
